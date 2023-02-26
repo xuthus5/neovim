@@ -19,6 +19,7 @@ go install github.com/jesseduffield/lazygit@latest
 npm install eslint --global
 npm install -g typescript typescript-language-server
 npm install -g @volar/vue-language-server
+npm install -g eslint_d
 ```
 
 ### 记忆项

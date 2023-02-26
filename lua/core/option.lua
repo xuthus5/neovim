@@ -73,7 +73,6 @@ vim.opt.backup = false
 vim.opt.swapfile = false
 vim.opt.writebackup = false
 vim.opt.undofile = true
-vim.opt.undodir = os.getenv("HOME") .. "/.vim/undodir"
 -- 开启 Folding
 vim.wo.foldmethod = "expr"
 vim.wo.foldexpr = "nvim_treesitter#foldexpr()"

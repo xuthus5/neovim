@@ -7,7 +7,7 @@ local noreopt = { noremap = true, silent = true }
 -- save
 map.set({ "n", "i" }, "<C-s>", "<cmd>w<cr>", noreopt)
 -- format
-map.set({ "n", "i" }, "=", "<cmd>lua vim.lsp.buf.format()<cr>", noreopt)
+map.set({ "n", "v", "x" }, "=", "<cmd>lua vim.lsp.buf.format()<cr>", noreopt)
 -- fine cmdline
 map.set("n", ":", "<cmd>FineCmdline<CR>", noreopt)
 -- telescope

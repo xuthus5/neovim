@@ -56,7 +56,6 @@ return require("packer").startup(function(use)
         })
         -- 通知
         use({ "rcarriga/nvim-notify" })
-
         -- 缩进线
         use({ "lukas-reineke/indent-blankline.nvim" })
         -- 注释管理
@@ -72,15 +71,16 @@ return require("packer").startup(function(use)
             "nvim-lualine/lualine.nvim",
             requires = { "kyazdani42/nvim-web-devicons", opt = true },
         })
-        use({
-            "windwp/nvim-autopairs",
-            config = function()
-                require("nvim-autopairs").setup({})
-            end,
-        })
+        -- 自动修复部分按键
+        use({ "tummetott/unimpaired.nvim" })
+        -- 标签补全
+        use({ "windwp/nvim-autopairs" })
+        use({ "windwp/nvim-ts-autotag" })
+        -- 自动保存
         use({
             "Pocco81/auto-save.nvim",
         })
+        -- lspsaga
         use({
             "glepnir/lspsaga.nvim",
             branch = "main",
@@ -148,7 +148,23 @@ return require("packer").startup(function(use)
         })
         -- 高亮当前关键词
         use({ "RRethy/vim-illuminate" })
-
+        -- 罗列文件中的所有url
+        use("axieax/urlview.nvim")
+        -- 快捷键提示
+        use({
+            "folke/which-key.nvim",
+            config = function()
+                vim.o.timeout = true
+                vim.o.timeoutlen = 300
+            end,
+        })
+        -- debug
+        use({
+            "theHamsta/nvim-dap-virtual-text",
+            "rcarriga/nvim-dap-ui",
+            "mfussenegger/nvim-dap",
+            "folke/neodev.nvim",
+        })
         -- 自动保存
         if packer_bootstrap then
             require("packer").sync()
