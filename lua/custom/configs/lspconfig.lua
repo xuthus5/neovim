@@ -11,6 +11,7 @@ table.insert(runtime_path, "lua/?/init.lua")
 lspconfig.lua_ls.setup {
     on_attach = on_attach,
     capabilities = capabilities,
+    filetypes = { "lua" },
     settings = {
         Lua = {
             runtime = {
@@ -52,3 +53,22 @@ lspconfig.gopls.setup {
         },
     },
 }
+
+-- VUE LSP
+lspconfig.volar.setup {
+    filetypes = { "typescript", "javascript", "javascriptreact", "typescriptreact", "vue", "json" },
+    init_options = {
+        typescript = {
+            -- Alternative location if installed as root:
+            tsdk = "/usr/local/lib/node_modules/typescript/lib",
+        },
+    },
+}
+
+-- BASH LSP
+lspconfig.bashls.setup {
+    filetypes = { "sh" },
+}
+
+-- JAVA LSP
+

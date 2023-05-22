@@ -17,7 +17,6 @@ local plugins = {
                 "golangci-lint-langserver",
                 "golines",
                 "gopls",
-                "gradle-language-server",
                 "html-lsp",
                 "json-lsp",
                 "lua-language-server",
@@ -30,17 +29,13 @@ local plugins = {
                 "yaml-language-server",
                 "yamlfmt",
                 "yamllint",
+                "jdtls",
             },
         },
     },
     {
-        "jose-elias-alvarez/null-ls.nvim",
-        config = function()
-            require "custom.configs.null-ls"
-        end,
-    },
-    {
         "neovim/nvim-lspconfig",
+        lazy = false,
         dependencies = {
             "jose-elias-alvarez/null-ls.nvim",
             config = function()
@@ -50,6 +45,14 @@ local plugins = {
         config = function()
             require "plugins.configs.lspconfig"
             require "custom.configs.lspconfig"
+        end,
+    },
+    {
+        "mfussenegger/nvim-jdtls",
+        ft = { "java" },
+        config = function()
+            require "custom.configs.java"
+            -- require "custom.configs.jdtls"
         end,
     },
     {

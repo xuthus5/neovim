@@ -1,5 +1,24 @@
 local M = {}
 
+M.windows = {
+    n = {
+        -- 折叠配置
+        ["<leader>z+"] = { "zM", "" },
+        ["<leaderz->"] = { "zR", "" },
+        ["<leader>zz"] = { "za", "" },
+        -- 分屏
+        ["<leader>sv"] = { ":vsp<CR>", "" },
+        ["<leader>sh"] = { ":sp<CR>", "" },
+        -- 快所退出
+        ["q"] = { ":wq<CR>", "" },
+        ["qn"] = { ":q!<CR>", "" },
+        ["qq"] = { ":qa!<CR>", "" },
+    },
+    i = {
+        ["jk"] = { "<ESC>", "" },
+    },
+}
+
 M.format = {
     n = {
         ["="] = { "<cmd>lua vim.lsp.buf.format()<cr>", "general format" },
