@@ -69,6 +69,3 @@ lspconfig.volar.setup {
 lspconfig.bashls.setup {
     filetypes = { "sh" },
 }
-
--- JAVA LSP
-

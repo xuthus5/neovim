@@ -8,7 +8,7 @@ end
 
 local project_name = vim.fn.fnamemodify(vim.fn.getcwd(), ":p:h:t")
 
-local workspace = g.jdtls_workspace .. project_name
+local workspace = g.jdtls_workspace .. "/" .. project_name
 local launcher = g.jdtls_home .. "/plugins/org.eclipse.equinox.launcher_1.6.400.v20210924-0641.jar"
 local configuration = g.jdtls_home .. "/config_linux"
 local lombok_bin = g.jdtls_home .. "/lombok.jar"
@@ -31,6 +31,7 @@ return {
     },
     capabilities = capabilities,
     on_attach = function(_, bufnr)
+        jdtls.setup_dap { hotcodereplace = "auto" }
         -- https://github.com/mfussenegger/dotfiles/blob/833d634251ebf3bf7e9899ed06ac710735d392da/vim/.config/nvim/ftplugin/java.lua#L88-L94
         local opts = { silent = true, buffer = bufnr }
         vim.keymap.set("n", "<leader>lo", jdtls.organize_imports, { desc = "Organize imports", buffer = bufnr })
